@@ -1,14 +1,53 @@
 <script setup>
+import {ref, reactive} from 'vue'
+
+import Proyectos from '../components/Proyectos.vue';
 import Proyecto from '../components/Proyecto.vue';
+
+
+const maraly= ref('maraly')
+const igem= ref('igem')
+const sdip= ref('sdip')
+
+
+const pMaraly=reactive({
+    name:"Constructora Maraly",
+    folder:"maraly",
+    images:[
+        "maraly1.jpg",
+        "maraly2.jpg",
+        "maraly3.jpg",
+        "maraly4.jpg",
+        "maraly5.jpg",
+        "maraly6.jpg",
+        "maraly7.jpg",
+        "maraly8.jpg",
+    ],
+    descripcion: "Hola esta es la descripcion del proyecto",
+    link:"https://gcmaraly.netlify.app/#/"
+})
+const pSdip=reactive({
+    name:"Sistema Divisional de Información y Planeación (SDIP CSH)",
+    folder:"sdip",
+    images:[
+        "sdip1.jpg",
+        "sdip2.jpg",
+        "sdip3.jpg",
+        "sdip4.jpg",
+    ],
+    descripcion: "Hola esta es la descripcion del proyecto",
+    link:"https://infocsh.izt.uam.mx/sdiplaravel/"
+})
+
 </script>
 
 <template>
 
     <div class="container mx-auto mt-4">
         <!--Presentation  -->
-        <div class="md:flex mx-5 items-center justify-center">
+        <div class="md:flex mx-5 items-center justify-between">
             <div class="flex-auto md:w-4/12  text-4xl mx-12 md:mx-0">
-                <img src="../assets/images/daniel2.jpg" class="w-60 h-60 object-cover rounded-full " alt="">
+                <img src="images/daniel2.jpg" class="w-60 h-60 object-cover rounded-full " alt="">
             </div>
 
             <div class="flex-auto md:w-10/12  mt-9 md:mt-0">
@@ -24,12 +63,19 @@ import Proyecto from '../components/Proyecto.vue';
             </div>
         </div>
     </div>
-    <Proyecto class="mt-10">
-
-    </Proyecto>
+    <Proyectos class="mt-10">
+        <Proyecto 
+            
+            :project="pMaraly"
+        ></Proyecto>
+        <Proyecto 
+            
+            :project="pSdip"
+        ></Proyecto>
+    </Proyectos>
 </template>
 
 
-<style lang="scss" scoped>
+<style  scoped>
 
 </style>

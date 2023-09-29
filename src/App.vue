@@ -2,6 +2,8 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { computed ,ref} from 'vue';
 
+
+
 const hidden= ref("true")
 const menuHamburguesa=()=>{
   hidden.value=!hidden.value
