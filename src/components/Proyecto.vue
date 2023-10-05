@@ -36,13 +36,14 @@ const props=defineProps({
                 <Swiper 
                     :modules="modules"
                     :slides-per-view="1.5"
-                    :space-between="50"
+                    :space-between="0"
                     :pagination="true"
                     :autoplay="autoplay"
                     :loop="true"
                     
+                    
                 >
-                    <SwiperSlide v-for="image in project.images" class="cursor-grab">
+                    <SwiperSlide v-for="image in project.images" class="cursor-grab" >
                         <img :src="`/images/projects/${project.folder}/${image}`" :alt="image" >
                     </SwiperSlide>
                     
