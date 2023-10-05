@@ -1,13 +1,9 @@
 <script setup>
-import {ref, reactive} from 'vue'
+import {ref, reactive, onMounted} from 'vue'
 
 import Proyectos from '../components/Proyectos.vue';
 import Proyecto from '../components/Proyecto.vue';
-
-
-const maraly= ref('maraly')
-const igem= ref('igem')
-const sdip= ref('sdip')
+import Experiencia from '../components/Experiencia.vue'
 
 
 const pMaraly=reactive({
@@ -39,6 +35,8 @@ const pSdip=reactive({
     link:"https://infocsh.izt.uam.mx/sdiplaravel/"
 })
 
+const proyectos = ref([pSdip,pMaraly])
+
 </script>
 
 <template>
@@ -64,15 +62,10 @@ const pSdip=reactive({
         </div>
     </div>
     <Proyectos class="mt-10">
-        <Proyecto 
-            
-            :project="pMaraly"
-        ></Proyecto>
-        <Proyecto 
-            
-            :project="pSdip"
-        ></Proyecto>
+        <Proyecto v-for="proyecto in proyectos" :project="proyecto" :name="proyecto.name">
+        </Proyecto>
     </Proyectos>
+    <Experiencia></Experiencia>
 </template>
 
 

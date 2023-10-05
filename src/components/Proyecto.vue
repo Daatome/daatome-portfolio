@@ -13,26 +13,9 @@ import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import 'swiper/css/bundle'
 
-const imagesMaraly= ref([
-    "maraly1.jpg",
-    "maraly2.jpg",
-    "maraly3.jpg",
-    "maraly4.jpg",
-    "maraly5.jpg",
-    "maraly6.jpg",
-    "maraly7.jpg",
-    "maraly8.jpg",
-])
 
 const props=defineProps({
-    images:{
-        type:Array,
-        required:true
-    },
-    name:{
-        type:String,
-        required:true
-    },
+    
     project:{
         type:Object,
         required:true
@@ -43,7 +26,7 @@ const props=defineProps({
 
 </script>
 
-<template >
+<template class=" mb-10">
     <div class="  bg-white  container mx-auto mb-10  border-gray-200 p-10 border-b-4 my-4">
 
         <div class="mx-10 mt-5 md:flex mx-5 items-center justify-between">
@@ -59,7 +42,7 @@ const props=defineProps({
                     :loop="true"
                     
                 >
-                    <SwiperSlide v-for="image in project.images" >
+                    <SwiperSlide v-for="image in project.images" class="cursor-grab">
                         <img :src="`/images/projects/${project.folder}/${image}`" :alt="image" >
                     </SwiperSlide>
                     
