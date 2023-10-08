@@ -1,5 +1,5 @@
 <script setup>
-import {reactive, ref} from 'vue'
+import {reactive, ref, computed} from 'vue'
 
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 
@@ -12,6 +12,9 @@ import 'swiper/css/scrollbar'
 import 'swiper/css/bundle'
 import 'swiper/css/autoplay'
 
+const screenWidth= computed(()=>{
+    return screen.width >768
+})
 
 const vue= reactive({
     name:'Vue',
@@ -109,18 +112,42 @@ const tecnologies=ref([laravel, vue,angular,bootstrap,c,css,docker,git,github,gi
 
         <h1 class="text-3xl text-center">Tecnologias con las que he trabajado</h1>
         <div class="mt-10 ">
-
-            <Swiper 
-                    :modules="modules"
-                    :slides-per-view="5"
-                    :space-between="10"
-                    :loop="true"
-                    @swiper="onSwiper"
-                    @slideChange="onSlideChange"
-                    navigation
-                    :scrollbar="{ draggable: true }"
-                    :autoplay="{delay: 3000}"
+            
+            <Swiper
+                v-if="screenWidth"
+                :modules="modules"
+                :slides-per-view="5"
+                :space-between="10"
+                :loop="true"
+                @swiper="onSwiper"
+                @slideChange="onSlideChange"
+                navigation
+                :scrollbar="{ draggable: true }"
+                :autoplay="{delay: 3000}"
+            >
+                <SwiperSlide v-for="tecnology in tecnologies" class="cursor-grab p-10 "
                     
+                >
+
+                    <h2 class="md:text-2xl text-xs text-center   mb-0 ">{{tecnology.name}}</h2>
+                    <h3 class=" border-emerald-500  border-b-4 mb-10 block px-8"></h3>
+                    <img :src="`/images/tecnologies//${tecnology.image}`" :alt="tecnology.name" class="mb-10  rounded-xl">
+
+                </SwiperSlide>
+                    
+            </Swiper>
+            <!--if the screen is small we show less logos per view-->
+            <Swiper
+                v-else
+                :modules="modules"
+                :slides-per-view="2"
+                :space-between="10"
+                :loop="true"
+                @swiper="onSwiper"
+                @slideChange="onSlideChange"
+                navigation
+                :scrollbar="{ draggable: true }"
+                :autoplay="{delay: 3000}"
             >
                 <SwiperSlide v-for="tecnology in tecnologies" class="cursor-grab p-10 "
                     

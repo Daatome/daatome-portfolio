@@ -2,8 +2,7 @@
 <script setup>
 import {  ref } from 'vue';
 
-
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 
 import {Swiper, SwiperSlide} from 'swiper/vue'
 
@@ -12,6 +11,9 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import 'swiper/css/bundle'
+import 'swiper/css/autoplay'
+const modules=ref([Navigation, Pagination, Scrollbar, A11y,Autoplay])
+
 
 
 const props=defineProps({
@@ -35,11 +37,12 @@ const props=defineProps({
 
                 <Swiper 
                     :modules="modules"
-                    :slides-per-view="1.5"
-                    :space-between="0"
-                    :pagination="true"
-                    :autoplay="autoplay"
+                    :slides-per-view="2"
+                    :space-between="10"
                     :loop="true"
+                    @swiper="onSwiper"
+                    @slideChange="onSlideChange"
+                    :autoplay="{delay: 3000}"
                     
                     
                 >
