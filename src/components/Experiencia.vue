@@ -110,7 +110,7 @@ const tecnologies=ref([laravel, vue,angular,bootstrap,c,css,docker,git,github,gi
 <template>
     <div class=" container mx-auto mb-10">
 
-        <h1 class="text-3xl text-center">Tecnologias con las que he trabajado</h1>
+        <h1 class="text-3xl text-center font-bold">Tecnologias con las que he trabajado</h1>
         <div class="mt-10 ">
             
             <Swiper
