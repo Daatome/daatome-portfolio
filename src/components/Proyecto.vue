@@ -31,7 +31,7 @@ const props=defineProps({
 <template class=" mb-10">
     <div class="  bg-white  container mx-auto mb-10  border-gray-200 p-10 border-b-4 my-4">
 
-        <div class="mx-10 mt-5 md:flex mx-5 items-center justify-between">
+        <div class="mx-10 mt-5 md:flex  items-center justify-between">
                 
             <div class="md:flex-auto md:w-7/12 ">
 

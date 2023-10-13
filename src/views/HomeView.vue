@@ -4,6 +4,7 @@ import {ref, reactive, onMounted} from 'vue'
 import Proyectos from '../components/Proyectos.vue';
 import Proyecto from '../components/Proyecto.vue';
 import Experiencia from '../components/Experiencia.vue'
+import Badges from '../components/Badges.vue';
 
 
 const pMaraly=reactive({
@@ -66,6 +67,8 @@ const proyectos = ref([pSdip,pMaraly])
         </Proyecto>
     </Proyectos>
     <Experiencia></Experiencia>
+
+    <Badges></Badges>
 </template>
 
 
