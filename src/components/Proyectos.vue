@@ -7,7 +7,6 @@
 <template >
     <div class="shadow-lg rounded-md bg-white  container mx-auto">
 
-        <h1 class="text-3xl border-emerald-500 p-3 border-b-4 font-bold">Algunos de mis proyectos</h1>
         <slot></slot>
         
     </div>

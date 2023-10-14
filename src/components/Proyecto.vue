@@ -1,6 +1,6 @@
 
 <script setup>
-import {  ref } from 'vue';
+import {  ref ,computed} from 'vue';
 
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 
@@ -29,15 +29,14 @@ const props=defineProps({
 </script>
 
 <template class=" mb-10">
-    <div class="  bg-white  container mx-auto mb-10  border-gray-200 p-10 border-b-4 my-4">
-
+    <div class="  bg-white  container mx-auto mb-10  border-gray-300 p-10 border-b-4 my-4">
         <div class="mx-10 mt-5 md:flex  items-center justify-between">
                 
-            <div class="md:flex-auto md:w-7/12 ">
+            <div class="md:flex-auto md:w-8/12 ">
 
                 <Swiper 
                     :modules="modules"
-                    :slides-per-view="2"
+                    :slides-per-view="1.2"
                     :space-between="10"
                     :loop="true"
                     @swiper="onSwiper"
@@ -47,7 +46,7 @@ const props=defineProps({
                     
                 >
                     <SwiperSlide v-for="image in project.images" class="cursor-grab" >
-                        <img :src="`/images/projects/${project.folder}/${image}`" :alt="image" >
+                        <img :src="`/images/projects/${project.folder}/${image}`" :alt="image" data-modal-target="defaultModal" data-modal-toggle="defaultModal">
                     </SwiperSlide>
                     
                 </Swiper>
@@ -64,8 +63,20 @@ const props=defineProps({
                 </a>
             </div>
         </div>
-        
     </div>
+
+
+
+
+
+
+    
+
+
+
+
+
+
 </template>
 
 <style  scoped>
